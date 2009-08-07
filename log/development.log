@@ -1,0 +1,1759 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (156.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090717063119)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090717063119')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("products")[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-07-17 15:34:36) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 1766ms (View: 1750, DB: 0) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2009-07-17 15:34:53) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 141ms (View: 16, DB: 0) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2009-07-17 15:35:33) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"A4VHFsefh2SIFshqyIxvmrIBmdedcvT0JssXb7TBa80=", "product"=>{"image_url"=>"images/svn.jpg", "title"=>"Pragmatic SVN book", "description"=>"some great book about svn"}}
+  [4;35;1mProduct Create (0.0ms)[0m   [0mINSERT INTO "products" ("image_url", "updated_at", "title", "description", "created_at") VALUES('images/svn.jpg', '2009-07-17 06:35:33', 'Pragmatic SVN book', 'some great book about svn', '2009-07-17 06:35:33')[0m
+Redirected to http://localhost:3000/products/1
+Completed in 297ms (DB: 0) | 302 Found [http://localhost/products]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2009-07-17 15:35:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-07-17 15:35:56) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090717063119)
+Migrating to AddPriceToProduct (20090717063729)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mALTER TABLE "products" ADD "price" decimal(8,2) DEFAULT 0[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090717063729')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("products")[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-07-17 15:46:32) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2009-07-17 15:52:16) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2009-07-17 15:52:18) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"A4VHFsefh2SIFshqyIxvmrIBmdedcvT0JssXb7TBa80=", "product"=>{"image_url"=>"", "price"=>"0.0", "title"=>"", "description"=>""}}
+Rendering template within layouts/products
+Rendering products/new
+Completed in 156ms (View: 78, DB: 0) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090717063119)
+Migrating to AddPriceToProduct (20090717063729)
+Migrating to AddTestData (20090717070532)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mProduct Delete all (0.0ms)[0m   [0mDELETE FROM "products" WHERE 1=1[0m
+  [4;36;1mProduct Exists (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" = 'Pragmatic Project Automation') LIMIT 1[0m
+  [4;35;1mProduct Create (0.0ms)[0m   [0mINSERT INTO "products" ("image_url", "updated_at", "title", "price", "description", "created_at") VALUES('/images/auto.jpg', '2009-07-17 07:07:53', 'Pragmatic Project Automation', 29.95, '<p>
+ <em>Pragmatic Project Automation</em> shows you how to improve the 
+ consistency and repeatability of your project''s procedures using 
+ automation to reduce risk and errors.
+ </p>
+ <p>
+ Simply put, we''re going to put this thing called a computer to work 
+ for you doing the mundane (but important) project stuff. That means 
+ you''ll have more time and energy to do the really 
+ exciting---and difficult---stuff, like writing quality code.
+ </p>', '2009-07-17 07:07:53')[0m
+  [4;36;1mProduct Exists (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" = 'Pragmatic Version Control') LIMIT 1[0m
+  [4;35;1mProduct Create (0.0ms)[0m   [0mINSERT INTO "products" ("image_url", "updated_at", "title", "price", "description", "created_at") VALUES('/images/svn.jpg', '2009-07-17 07:07:53', 'Pragmatic Version Control', 28.5, '<p>
+ This book is a recipe-based approach to using Subversion that will 
+ get you up and running quickly---and correctly. All projects need
+ version control: it''s a foundational piece of any project''s 
+ infrastructure. Yet half of all project teams in the U.S. don''t use
+ any version control at all. Many others don''t use it well, and end 
+ up experiencing time-consuming problems.
+ </p>', '2009-07-17 07:07:53')[0m
+  [4;36;1mProduct Exists (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" = 'Pragmatic Unit Testing (C#)') LIMIT 1[0m
+  [4;35;1mProduct Create (0.0ms)[0m   [0mINSERT INTO "products" ("image_url", "updated_at", "title", "price", "description", "created_at") VALUES('/images/utc.jpg', '2009-07-17 07:07:53', 'Pragmatic Unit Testing (C#)', 27.75, '<p>
+ Pragmatic programmers use feedback to drive their development and 
+ personal processes. The most valuable feedback you can get while 
+ coding comes from unit testing.
+ </p>
+ <p>
+ Without good tests in place, coding can become a frustrating game of 
+ "whack-a-mole." That''s the carnival game where the player strikes at a 
+ mechanical mole; it retreats and another mole pops up on the opposite side 
+ of the field. The moles pop up and down so fast that you end up flailing 
+ your mallet helplessly as the moles continue to pop up where you least 
+ expect them.
+ </p>', '2009-07-17 07:07:53')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090717070532')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("products")[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-07-17 16:33:33) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+ERROR: compiling _run_erb_app47views47products47index46html46erb RAISED compile error
+C:/Ruby/InstantRails/rails_apps/depot/app/views/products/index.html.erb:24: syntax error, unexpected tOP_ASGN, expecting kEND
+@output_buffer.concat "  ";  end %=>	
+                                   ^
+C:/Ruby/InstantRails/rails_apps/depot/app/views/products/index.html.erb:28: syntax error, unexpected '<'
+</div>
+ ^
+C:/Ruby/InstantRails/rails_apps/depot/app/views/products/index.html.erb:28: unterminated string meets end of file
+Function body:           def _run_erb_app47views47products47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<div id=\"product-list\">\n"
+@output_buffer.concat "  <h1>Listing products</h1>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "  <table>\n"
+@output_buffer.concat "  ";  for product in @products ; @output_buffer.concat "\n"
+@output_buffer.concat "    <tr class=\""; @output_buffer.concat(( cycle('list-line-odd', 'list-line-even') ).to_s); @output_buffer.concat "\">\n"
+@output_buffer.concat "\t  <td>\n"
+@output_buffer.concat "\t    "; @output_buffer.concat(( image_tag product.image_url, :class => 'list-image' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\t  </td>\n"
+@output_buffer.concat "\t  \n"
+@output_buffer.concat "\t  <td class=\"list-description\">\n"
+@output_buffer.concat "\t    <dl>\n"
+@output_buffer.concat "\t\t  <dt>"; @output_buffer.concat((h product.title ).to_s); @output_buffer.concat "</dt>\n"
+@output_buffer.concat "\t\t  <dd>"; @output_buffer.concat((h truncate(product.description.gsub(/<.*?>/,''), :length => 80) ).to_s); @output_buffer.concat "</dd>\n"
+@output_buffer.concat "\t\t</dl>\n"
+@output_buffer.concat "\t  </td>\n"
+@output_buffer.concat "\t  \n"
+@output_buffer.concat "\t  <td class=\"list-actions\">\n"
+@output_buffer.concat "\t    "; @output_buffer.concat(( link_to 'Show', product ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "\t\t"; @output_buffer.concat(( link_to 'Edit', edit_product_path(product) ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "\t\t"; @output_buffer.concat(( link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\t  </td>\n"
+@output_buffer.concat "\t</tr>\n"
+@output_buffer.concat "  ";  end %=>	
+  </table>
+
+  <br />
+</div>
+
+<%= link_to 'New product', new_product_path ; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/Ruby/InstantRails/rails_apps/depot/app/views/products/index.html.erb:28:in `compile!'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+C:/Ruby/InstantRails/rails_apps/depot/app/controllers/products_controller.rb:7:in `index'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/Ruby/InstantRails/rails_apps/depot/app/views/products/index.html.erb:24: syntax error, unexpected tOP_ASGN, expecting kEND
+@output_buffer.concat "  ";  end %=>	
+                                   ^
+C:/Ruby/InstantRails/rails_apps/depot/app/views/products/index.html.erb:28: syntax error, unexpected '<'
+</div>
+ ^
+C:/Ruby/InstantRails/rails_apps/depot/app/views/products/index.html.erb:28: unterminated string meets end of file) on line #24 of app/views/products/index.html.erb:
+21: 		<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
+22: 	  </td>
+23: 	</tr>
+24:   <% end %=>	
+25:   </table>
+26: 
+27:   <br />
+
+    app/views/products/index.html.erb:28:in `compile!'
+    app/controllers/products_controller.rb:7:in `index'
+
+Rendered rescues/_trace (140.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-07-17 16:34:11) [GET]
+  [4;36;1mProduct Load (125.0ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 172ms (View: 31, DB: 125) | 200 OK [http://localhost/products]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-21 16:57:29) [GET]
+Rendering store/index
+Completed in 15ms (View: 0, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-21 17:08:50) [GET]
+
+NoMethodError (undefined method `>' for :minimum:Symbol):
+  app/models/product.rb:9
+  app/controllers/store_controller.rb:3:in `index'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-21 17:09:10) [GET]
+
+NoMethodError (undefined method `<' for :minimum:Symbol):
+  app/models/product.rb:9
+  app/controllers/store_controller.rb:3:in `index'
+
+Rendered rescues/_trace (218.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-21 17:09:19) [GET]
+  [4;36;1mProduct Load (47.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering store/index
+Completed in 62ms (View: 0, DB: 47) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 11:39:10) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering store/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 11:39:59) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering store/index
+Completed in 125ms (View: 110, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 11:53:38) [GET]
+  [4;36;1mProduct Load (16.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 11:54:50) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 11:55:27) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 11:57:28) [GET]
+  [4;35;1mProduct Load (16.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 32ms (View: 16, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 11:57:59) [GET]
+  [4;36;1mProduct Load (16.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 32ms (View: 16, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 11:59:42) [GET]
+  [4;35;1mProduct Load (16.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:01:42) [GET]
+  [4;36;1mProduct Load (16.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:07:01) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 1875ms (View: 1859, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:08:02) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 46ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:10:02) [GET]
+  [4;35;1mProduct Load (15.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+
+ActionView::TemplateError (private method `now' called for Date:Class) on line #20 of app/views/layouts/store.html.erb:
+17:       <a href="http://www..../faq">Questions</a><br />
+18:       <a href="http://www..../news">News</a><br />
+19:       <a href="http://www..../contact">Contact</a><br />
+20: 	  <%= Date.now %>
+21:     </div>
+22:     <div id="main">
+23:       <%= yield :layout %>
+
+    app/views/layouts/store.html.erb:20
+
+Rendered rescues/_trace (203.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:10:12) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+
+ActionView::TemplateError (undefined method `time' for Date:Class) on line #20 of app/views/layouts/store.html.erb:
+17:       <a href="http://www..../faq">Questions</a><br />
+18:       <a href="http://www..../news">News</a><br />
+19:       <a href="http://www..../contact">Contact</a><br />
+20: 	  <%= Date.time %>
+21:     </div>
+22:     <div id="main">
+23:       <%= yield :layout %>
+
+    app/views/layouts/store.html.erb:20
+
+Rendered rescues/_trace (234.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:11:54) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:12:28) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 63ms (View: 47, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:25:05) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:25:06) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 156ms (View: 125, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:25:06) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:25:07) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:25:08) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:25:09) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:25:09) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:25:10) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:25:11) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 12:25:14) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090717063119)
+Migrating to AddPriceToProduct (20090717063729)
+Migrating to AddTestData (20090717070532)
+Migrating to CreateSessions (20090722033701)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090722033701')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("products")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-22 13:14:00) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0=", "id"=>"2"}
+
+ActionController::UnknownAction (No action responded to add_to_cart. Actions: index):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 17:20:45) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0="}
+  [4;35;1mProduct Load (32.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 344ms (View: 250, DB: 32) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 17:20:53) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0="}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 17:21:05) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0="}
+  [4;35;1mProduct Load (15.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 32, DB: 15) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 17:21:25) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0="}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-22 17:21:50) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProduct Load (78.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 93ms (View: 15, DB: 78) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-22 17:21:55) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-22 17:22:15) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProduct Load (16.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-22 17:22:41) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0="}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 63ms (View: 47, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-22 17:22:51) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-22 17:22:54) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0=", "id"=>"4"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/store/add_to_cart/4]
+/!\ FAILSAFE /!\  Wed Jul 22 17:22:54 +0900 2009
+  Status: 500 Internal Server Error
+  ActionController::Session::CookieStore::CookieOverflow
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:102:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-22 17:23:02) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0=", "id"=>"4"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/store/add_to_cart/4]
+/!\ FAILSAFE /!\  Wed Jul 22 17:23:02 +0900 2009
+  Status: 500 Internal Server Error
+  ActionController::Session::CookieStore::CookieOverflow
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:102:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-22 17:23:05) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0=", "id"=>"3"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/store/add_to_cart/3]
+/!\ FAILSAFE /!\  Wed Jul 22 17:23:05 +0900 2009
+  Status: 500 Internal Server Error
+  ActionController::Session::CookieStore::CookieOverflow
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:102:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-22 17:23:07) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+/!\ FAILSAFE /!\  Wed Jul 22 17:23:07 +0900 2009
+  Status: 500 Internal Server Error
+  ActionController::Session::CookieStore::CookieOverflow
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:102:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-22 17:23:17) [POST]
+  Parameters: {"authenticity_token"=>"knJma+5OrRJMxe8KYXRpJlZbm57Ym/0YHQO5grRz1S0=", "id"=>"4"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/store/add_to_cart/4]
+/!\ FAILSAFE /!\  Wed Jul 22 17:23:17 +0900 2009
+  Status: 500 Internal Server Error
+  ActionController::Session::CookieStore::CookieOverflow
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:102:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+    C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+  [4;36;1mSQL (297.0ms)[0m   [0;1mDELETE FROM sessions[0m
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 11:37:36) [GET]
+  [4;36;1mProduct Load (15.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 2140ms (View: 2125, DB: 15) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 11:37:41) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 62ms (View: 15, DB: 15) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 11:56:33) [GET]
+  Parameters: {"id"=>"toz"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 0) [0m
+Attempt to access invalid product toz
+Redirected to http://localhost:3000/store
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/store/add_to_cart/toz]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 11:56:33) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 12:00:29) [GET]
+  Parameters: {"id"=>"toz"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 0) [0m
+Attempt to access invalid product toz
+Redirected to http://localhost:3000/store
+Completed in 47ms (DB: 0) | 302 Found [http://localhost/store/add_to_cart/toz]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:00:29) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 109ms (View: 109, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-23 12:04:41) [GET]
+
+SyntaxError (C:/Ruby/InstantRails/rails_apps/depot/app/controllers/store_controller.rb:19: syntax error, unexpected ']', expecting kEND):
+  
+
+Rendered rescues/_trace (110.0ms)
+Rendered rescues/_request_and_response (15.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:04:53) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 12:04:54) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+
+ActionView::TemplateError (undefined local variable or method `action' for #<ActionView::Base:0x28230a0>) on line #8 of app/views/store/add_to_cart.html.erb:
+5:   <% end %>
+6: </ul>
+7: 
+8: <%= button_to 'Empty cart', action => 'empty_cart' %>
+
+    app/views/store/add_to_cart.html.erb:8
+
+Rendered rescues/_trace (141.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 12:05:18) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 62ms (View: 16, DB: 15) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-23 12:05:20) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk="}
+Redirected to http://localhost:3000/store
+Completed in 31ms (DB: 15) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:05:20) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 12:07:03) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;36;1mProduct Load (16.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-23 12:07:05) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk="}
+Redirected to http://localhost:3000/store
+Completed in 32ms (DB: 0) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:07:05) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 12:17:33) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 156ms (View: 109, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-23 12:46:06) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk="}
+Redirected to http://localhost:3000/store
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:46:07) [GET]
+  [4;35;1mProduct Load (16.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:46:11) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:46:12) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:46:14) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:50:42) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 78ms (View: 46, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:50:43) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 219ms (View: 187, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:50:44) [GET]
+  [4;35;1mProduct Load (16.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:50:54) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 12:51:01) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 63ms (View: 47, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:02:06) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 109ms (View: 78, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-23 15:02:13) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk="}
+Redirected to http://localhost:3000/store
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 15:02:13) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (15.0ms)
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-23 15:02:15) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk="}
+Redirected to http://localhost:3000/store
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 15:02:15) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:19:18) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 63ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:21:05) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"4"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/store_controller.rb:13:in `redirect_to_index'
+  app/controllers/store_controller.rb:13:in `add_to_cart'
+
+Rendered rescues/_trace (250.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:21:33) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"4"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Redirected to http://localhost:3000/store
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/store/add_to_cart/4]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 15:21:33) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:21:37) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"4"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Redirected to http://localhost:3000/store
+Completed in 32ms (DB: 0) | 302 Found [http://localhost/store/add_to_cart/4]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 15:21:37) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:21:39) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Redirected to http://localhost:3000/store
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 15:21:39) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 15:23:49) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 172ms (View: 125, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:49:10) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;36;1mProduct Load (62.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Completed in 4234ms (View: 1578, DB: 500) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:50:04) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (141.0ms)
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (328.0ms)
+Completed in 797ms (View: 641, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 15:51:55) [GET]
+  [4;36;1mProduct Load (31.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 484ms (View: 375, DB: 47) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 15:51:58) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 188ms (View: 125, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-23 15:52:02) [POST]
+  Parameters: {"authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk="}
+Redirected to http://localhost:3000/store
+Completed in 63ms (DB: 0) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 15:52:02) [GET]
+  [4;36;1mProduct Load (15.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 62ms (View: 32, DB: 15) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:52:05) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 63ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:52:07) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:52:08) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 15:52:11) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;36;1mProduct Load (15.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 62ms (View: 16, DB: 30) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 17:17:34) [GET]
+  [4;35;1mProduct Load (46.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (94.0ms)
+Completed in 344ms (View: 250, DB: 46) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:17:36) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:19:17) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"4"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 62ms (View: 15, DB: 0) | 200 OK [http://localhost/store/add_to_cart/4]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:19:45) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:27:24) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (47.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (47.0ms)
+Completed in 141ms (View: 63, DB: 31) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 17:28:34) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 250ms (View: 140, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:28:39) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:29:40) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:29:42) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"4"}
+  [4;35;1mProduct Load (16.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 47ms (View: 15, DB: 16) | 200 OK [http://localhost/store/add_to_cart/4]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:29:44) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"4"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (109.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (109.0ms)
+Completed in 141ms (View: 109, DB: 0) | 200 OK [http://localhost/store/add_to_cart/4]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:29:47) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"KT648O04LfT3YIN1jgpnAdXaUhfXzEf6CsSHh6B71bk=", "id"=>"4"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/4]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 17:39:30) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 1875ms (View: 32, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 17:41:49) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:41:51) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ=", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 78ms (View: 31, DB: 16) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:41:56) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ=", "id"=>"4"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/4]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:42:00) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ=", "id"=>"3"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:42:19) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 46ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:42:39) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ=", "id"=>"3"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:42:41) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (94.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart (109.0ms)
+Completed in 140ms (View: 109, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-23 17:42:42) [POST]
+  Parameters: {"authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ="}
+Redirected to http://localhost:3000/store
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 17:42:42) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:42:44) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 17:45:04) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-23 17:45:06) [POST]
+  Parameters: {"authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ="}
+Redirected to http://localhost:3000/store
+Completed in 94ms (DB: 0) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 17:45:06) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:45:09) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ=", "id"=>"2"}
+  [4;36;1mProduct Load (16.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 46ms (View: 15, DB: 16) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-23 17:45:13) [POST]
+  Parameters: {"authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ="}
+Redirected to http://localhost:3000/store
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-23 17:45:14) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-23 17:45:16) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"ANxStCIZleQeEZkUIHFvA4YCs88rZjlJAveAE6TvwhQ=", "id"=>"2"}
+  [4;36;1mProduct Load (15.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (94.0ms)
+Rendered store/_cart (94.0ms)
+Completed in 125ms (View: 94, DB: 15) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-30 10:46:16) [GET]
+  [4;36;1mProduct Load (16.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 1984ms (View: 125, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-30 10:46:22) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"jBMHia6Q0jsqwuvhKHUzXlouoMAlGLXSSnbm/LjdLw8=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-30 10:46:25) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"jBMHia6Q0jsqwuvhKHUzXlouoMAlGLXSSnbm/LjdLw8=", "id"=>"4"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 63ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/4]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-30 10:47:43) [POST]
+  Parameters: {"authenticity_token"=>"jBMHia6Q0jsqwuvhKHUzXlouoMAlGLXSSnbm/LjdLw8="}
+Redirected to http://localhost:3000/store
+Completed in 32ms (DB: 16) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-30 10:47:44) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (16.0ms)
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-30 10:58:12) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+ERROR: compiling _run_erb_app47views47layouts47store46html46erb RAISED compile error
+C:/Ruby/InstantRails/rails_apps/depot/app/views/layouts/store.html.erb:1: syntax error, unexpected kDO, expecting ')'
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ;  hidden_div_if(@cart.items.empty?, :id => "cart" do ; @output_buffer.concat "\n"
+                                                                                                                                                 ^
+C:/Ruby/InstantRails/rails_apps/depot/app/views/layouts/store.html.erb:4: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47layouts47store46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ;  hidden_div_if(@cart.items.empty?, :id => "cart" do ; @output_buffer.concat "\n"
+@output_buffer.concat "  "; @output_buffer.concat(( render(:partial => "cart", :object => @cart) ).to_s); @output_buffer.concat "\n"
+ end ; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/Ruby/InstantRails/rails_apps/depot/app/views/layouts/store.html.erb:4:in `compile!'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:347:in `_render_with_layout'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render_without_benchmark'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action_without_filters'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/abstract_store.rb:122:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+C:/Ruby/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/Ruby/InstantRails/rails_apps/depot/app/views/layouts/store.html.erb:1: syntax error, unexpected kDO, expecting ')'
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ;  hidden_div_if(@cart.items.empty?, :id => "cart" do ; @output_buffer.concat "\n"
+                                                                                                                                                 ^
+C:/Ruby/InstantRails/rails_apps/depot/app/views/layouts/store.html.erb:4: syntax error, unexpected kENSURE, expecting $end) on line #1 of app/views/layouts/store.html.erb:
+1: <% hidden_div_if(@cart.items.empty?, :id => "cart" do %>
+2:   <%= render(:partial => "cart", :object => @cart) %>
+3: <% end %>
+
+    app/views/layouts/store.html.erb:4:in `compile!'
+
+Rendered rescues/_trace (125.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-30 10:58:43) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 157ms (View: 32, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-30 10:58:45) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"jBMHia6Q0jsqwuvhKHUzXlouoMAlGLXSSnbm/LjdLw8=", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 63ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-30 10:58:47) [POST]
+  Parameters: {"authenticity_token"=>"jBMHia6Q0jsqwuvhKHUzXlouoMAlGLXSSnbm/LjdLw8="}
+Redirected to http://localhost:3000/store
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-30 10:58:48) [GET]
+  [4;35;1mProduct Load (16.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-30 11:00:28) [GET]
+  [4;36;1mProduct Load (16.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 63ms (View: 47, DB: 16) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-30 11:00:31) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"jBMHia6Q0jsqwuvhKHUzXlouoMAlGLXSSnbm/LjdLw8=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-07-30 11:00:34) [POST]
+  Parameters: {"authenticity_token"=>"jBMHia6Q0jsqwuvhKHUzXlouoMAlGLXSSnbm/LjdLw8="}
+Redirected to http://localhost:3000/store
+Completed in 31ms (DB: 15) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-07-30 11:00:34) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-07-30 11:00:37) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"jBMHia6Q0jsqwuvhKHUzXlouoMAlGLXSSnbm/LjdLw8=", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart (15.0ms)
+Completed in 62ms (View: 15, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
